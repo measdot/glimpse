@@ -7,12 +7,17 @@ import url from "url";
 const { menubar } = require("menubar");
 
 const mb = menubar({
-  browserWindow: { transparent: true },
+  browserWindow: { 
+    transparent: false,
+    titleBarStyle: 'hidden'
+   },
   index: url.format({
     pathname: path.join(__dirname, "app.html"),
     protocol: "file:",
     slashes: true
-  })
+  }),
+  preloadWindow: true,
+  windowPosition: 'center'
 });
 
 mb.on("after-create-window", () => {
@@ -21,7 +26,7 @@ mb.on("after-create-window", () => {
 
 mb.on("ready", () => {
   mb._options.browserWindow.width = 800;
-  mb._options.browserWindow.height = 450;
+  mb._options.browserWindow.height = 600;
   mb._options.browserWindow.resizable = true;
 
   console.log("app is ready");

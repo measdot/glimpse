@@ -1,7 +1,7 @@
 import { remote } from "electron";
 import monitor from "./monitor";
-import cloudItmes from "../ops/cloudItmes";
-import itemInfo from "../ops/itemInfo";
+import cloudItmes from "../../ops/cloudItmes";
+import itemInfo from "../../ops/itemInfo";
 
 export default {
   init: async () => {

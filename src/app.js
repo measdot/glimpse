@@ -1,7 +1,15 @@
+// import '@ag-grid-community/all-modules/dist/styles/ag-grid.css'
+// import styles from 'jexcel/dist/jexcel.css';
 import "./styles/main.css";
+// require("!style!css!jexcel/dist/jexcel.css")
 
-import monitor from "./app/monitor";
-import listPanel from "./app/list-panel";
+import { Titlebar, Color } from "custom-electron-titlebar";
 
-monitor.home();
-listPanel.init();
+new Titlebar({
+  backgroundColor: Color.fromHex("#444444"),
+  shadow: true,
+  minimizable: false,
+  maximizable: false
+}).setHorizontalAlignment("right");
+
+require("./app/home");

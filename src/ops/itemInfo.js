@@ -1,4 +1,4 @@
-import monitor from "../app/monitor";
+import monitor from "../app/deprecated/monitor";
 import { remote } from "electron";
 import cw from "./core/_cw";
 import ecs from "./core/_ecs";
