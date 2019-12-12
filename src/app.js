@@ -1,15 +1,4 @@
-// import '@ag-grid-community/all-modules/dist/styles/ag-grid.css'
-// import styles from 'jexcel/dist/jexcel.css';
-import "./styles/main.css";
-// require("!style!css!jexcel/dist/jexcel.css")
+import "./main.css";
+import {AppLanding} from "./components/AppLanding"
 
-import { Titlebar, Color } from "custom-electron-titlebar";
-
-new Titlebar({
-  backgroundColor: Color.fromHex("#444444"),
-  shadow: true,
-  minimizable: false,
-  maximizable: false
-}).setHorizontalAlignment("right");
-
-require("./app/home");
+new AppLanding('#app')

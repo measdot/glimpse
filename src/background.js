@@ -5,11 +5,30 @@
 import path from "path";
 import url from "url";
 const { menubar } = require("menubar");
+const contextMenu = require('electron-context-menu');
+ 
+contextMenu({
+    prepend: (defaultActions, params, browserWindow) => [
+        {
+            label: 'Rainbow',
+            // Only show it when right-clicking images
+            visible: params.mediaType === 'image'
+        },
+        {
+            label: 'Search Google for “{selection}”',
+            // Only show it when right-clicking text
+            visible: params.selectionText.trim().length > 0,
+            click: () => {
+                shell.openExternal(`https://google.com/search?q=${encodeURIComponent(params.selectionText)}`);
+            }
+        }
+    ]
+});
 
 const mb = menubar({
   browserWindow: { 
     transparent: false,
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hiddenInset',
    },
   index: url.format({
     pathname: path.join(__dirname, "app.html"),
@@ -17,17 +36,24 @@ const mb = menubar({
     slashes: true
   }),
   preloadWindow: true,
-  windowPosition: 'center'
+  windowPosition: 'center',
+  height: 500,
+  width:800,
+  fullscreen:false,
 });
 
+const transparentTitlebar = require('transparent-titlebar')
+
 mb.on("after-create-window", () => {
-  mb.window.openDevTools()
+  // Setup window to use transparent titlebar
+  // transparentTitlebar.setup(mb.window.getNativeWindowHandle())
+  // mb.window.openDevTools()
 });
 
 mb.on("ready", () => {
-  mb._options.browserWindow.width = 800;
-  mb._options.browserWindow.height = 600;
-  mb._options.browserWindow.resizable = true;
+  // mb._options.browserWindow.width = 1200;
+  // mb._options.browserWindow.height = 800;
+  // mb._options.browserWindow.resizable = true;
 
   console.log("app is ready");
 
