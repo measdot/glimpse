@@ -19,7 +19,7 @@ export class PanelCloudItems {
               type: "component",
               isClosable: false,
               componentName: "ec2",
-              title: "EC2",
+              title: "AWS EC2",
               component: Plot
             }
           ]

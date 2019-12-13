@@ -1,9 +1,0 @@
-/* @import '~jexcel/dist/jexcel.css'; */
-/* @import '~@ag-grid-community/all-modules/dist/styles/ag-grid.css'; */
-/* @import 'handsontable/dist/handsontable.full.min.css'; */
-/* .ht_master tr td {
-    background-color: #F00;
-  } */
-.handsontable th {color: #f5ffa5 !important; background: #78DEFF !important; }
-
-.handsontable td, .handsontable tr {background: transparent !important;}

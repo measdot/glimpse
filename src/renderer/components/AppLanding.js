@@ -19,65 +19,12 @@ export class AppLanding {
         {
           type: "main",
           resizable: true,
-          toolbar: {
-            items: [
-              {
-                type: "radio",
-                id: "item3",
-                group: "1",
-                caption: "Dev",
-                hint: "Show resources from only Dev account"
-              },
-              {
-                type: "radio",
-                id: "item4",
-                group: "1",
-                caption: "Stage",
-                hint: "Show resources from only Stage account",
-                checked: true
-              },
-              {
-                type: "radio",
-                id: "item5",
-                group: "1",
-                caption: "Prod",
-                hint: "Show resources from only Prod account"
-              },
-              { type: "break", id: "break1" },
-              {
-                type: "button",
-                id: "item6",
-                caption: "Sync All",
-                icon: "w2ui-icon-reload",
-                hint: "Sync below resouces list with cloud"
-              },
-              { type: "spacer" },
-              {
-                type: "button",
-                id: "item1",
-                caption: "Logs",
-                img: "icon-page"
-              },
-              { type: "break", id: "break0" },
-              {
-                type: "menu",
-                id: "item2",
-                caption: "Charts",
-                img: "icon-folder",
-                items: [
-                  { text: "CPU Utilisation" },
-                  { text: "Network In"},
-                  { text: "Network Out"}
-                ]
-              }
-            ]
-          }
         },
         {
           type: "right",
           resizable: true,
           size: "50%",
-          minSize: 200,
+          // minSize: 200
         },
         {
           type: "top",
@@ -107,6 +54,64 @@ export class AppLanding {
                   break;
               }
             }
+          }
+        },
+        {
+          type: "bottom",
+          resizable: false,
+          size: 35,
+          toolbar: {
+            items: [
+              {
+                type: "radio",
+                id: "item3",
+                group: "1",
+                caption: "Dev",
+                hint: "Show resources from only Dev account"
+              },
+              {
+                type: "radio",
+                id: "item4",
+                group: "1",
+                caption: "Stage",
+                hint: "Show resources from only Stage account",
+                checked: true
+              },
+              {
+                type: "radio",
+                id: "item5",
+                group: "1",
+                caption: "Prod",
+                hint: "Show resources from only Prod account"
+              },
+              { type: "break", id: "break1" },
+              {
+                type: "button",
+                id: "item6",
+                caption: "Sync all with Cloud",
+                icon: "w2ui-icon-reload",
+                hint: "Sync below resouces list with cloud"
+              },
+              { type: "spacer" },
+              {
+                type: "button",
+                id: "item1",
+                caption: "Logs",
+                img: "icon-page"
+              },
+              { type: "break", id: "break0" },
+              {
+                type: "menu",
+                id: "item2",
+                caption: "Charts",
+                img: "icon-folder",
+                items: [
+                  { text: "CPU Utilisation" },
+                  { text: "Network In" },
+                  { text: "Network Out" }
+                ]
+              }
+            ]
           }
         }
       ]

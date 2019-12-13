@@ -26,8 +26,9 @@ export class Plot {
     container.on(
       "open",
       function() {
-        $(this._container).w2grid(this._config);
-        w2ui["ec2-grid"].add([
+        var w2gridInstance = $(this._container).w2grid(this._config);
+        
+        w2gridInstance.add([
           {
             recid: 1,
             id: "i-002b29d98307aae1d",
@@ -251,6 +252,7 @@ export class Plot {
             status: "running"
           }
         ]);
+
       }.bind(this)
     );
   }

@@ -1,6 +1,6 @@
 export class Sidebar {
   constructor(container, state) {
-    $(container).w2grid({
+    this._w2gridInstance = $(container).w2grid({
       name: "grid",
       show: { 
         selectColumn: true, 
@@ -13,7 +13,7 @@ export class Sidebar {
       ]
     });
 
-    w2ui["grid"].add([
+    this._w2gridInstance.add([
       {
         recid: 1,
         accounts: "Stage",
@@ -41,7 +41,7 @@ export class Sidebar {
       }
     ]);
 
-    w2ui["grid"].add([
+    this._w2gridInstance.add([
       {
         recid: 11,
         accounts: "Prod",
@@ -69,7 +69,7 @@ export class Sidebar {
       }
     ]);
 
-    w2ui["grid"].add([
+    this._w2gridInstance.add([
       {
         recid: 111,
         accounts: "Dev",
@@ -97,7 +97,7 @@ export class Sidebar {
       }
     ]);
 
-    w2ui["grid"].add([
+    this._w2gridInstance.add([
       {
         recid: 1111,
         accounts: "Team",
