@@ -20,22 +20,21 @@ export class AppLanding {
           type: "main",
           resizable: true,
         },
+        // {
+        //   type: "right",
+        //   resizable: true,
+        //   size: "50%",
+        //   // minSize: 200
+        // },
         {
-          type: "right",
-          resizable: true,
-          size: "50%",
-          // minSize: 200
-        },
-        {
-          type: "top",
-          size: 35,
+          type: "bottom",
+          size: 25,
           toolbar: {
             name: "toolbar",
-            style:
-              "padding-left: 70px; padding-top: 7px; -webkit-app-region: drag;border-bottom: none",
+            style: "padding:0px 5px",
             items: [
-              { type: "button", id: "item7", caption: "Glimpse" },
-              { type: "break", id: "break2" },
+              // { type: "button", id: "item7", caption: "Glimpse" },
+              // { type: "break", id: "break2" },
               {
                 type: "html",
                 id: "item2",
@@ -50,59 +49,29 @@ export class AppLanding {
             onClick: function(event) {
               switch (event.target) {
                 case "item6":
-                  w2ui["layout-home"].toggle("left");
+                  // w2ui["layout-home"].toggle("right");
                   break;
               }
             }
           }
         },
         {
-          type: "bottom",
+          type: "top",
           resizable: false,
           size: 35,
           toolbar: {
+            style: "padding: 2px; background: #e1e1e1; -webkit-app-region: drag",
             items: [
               {
-                type: "radio",
-                id: "item3",
-                group: "1",
-                caption: "Dev",
-                hint: "Show resources from only Dev account"
-              },
-              {
-                type: "radio",
-                id: "item4",
-                group: "1",
-                caption: "Stage",
-                hint: "Show resources from only Stage account",
-                checked: true
-              },
-              {
-                type: "radio",
-                id: "item5",
-                group: "1",
-                caption: "Prod",
-                hint: "Show resources from only Prod account"
-              },
-              { type: "break", id: "break1" },
-              {
                 type: "button",
-                id: "item6",
-                caption: "Sync all with Cloud",
-                icon: "w2ui-icon-reload",
-                hint: "Sync below resouces list with cloud"
-              },
-              { type: "spacer" },
-              {
-                type: "button",
-                id: "item1",
+                id: "logs",
                 caption: "Logs",
                 img: "icon-page"
               },
-              { type: "break", id: "break0" },
+              { type: "break", id: "break1" },
               {
                 type: "menu",
-                id: "item2",
+                id: "charts",
                 caption: "Charts",
                 img: "icon-folder",
                 items: [
@@ -110,6 +79,14 @@ export class AppLanding {
                   { text: "Network In" },
                   { text: "Network Out" }
                 ]
+              },
+              { type: "spacer" },
+              {
+                type: 'html', id: 'item1',
+                html: function (item) {
+                  var html =`<input style="margin-right:10px;" size="75" placeholder="<CPU Utilization> chart for <Website> application from <Stage> account"/>`;
+                  return html;
+                }
               }
             ]
           }
@@ -140,8 +117,8 @@ export class AppLanding {
       }.bind(this)
     );
 
-    new Sidebar(this._leftContainer);
+    // new Sidebar(this._leftContainer);
     new PanelCloudItems(this._mainContainer);
-    new PanelMonitor(this._rightContainer);
+    // new PanelMonitor(this._rightContainer);
   }
 }

@@ -13,7 +13,8 @@ function createMainWindow() {
   const window = new BrowserWindow({
     webPreferences: {nodeIntegration: true},
     transparent: false,
-    titleBarStyle: 'hiddenInset',
+    // titleBarStyle: 'hidden',
+    // titleBarStyle: 'hiddenInset',
     fullscreen:false,
   })
 

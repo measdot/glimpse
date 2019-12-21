@@ -3,20 +3,55 @@ export class Plot {
     this._config = {
       name: "ec2-grid",
       multiSelect: false,
+      multiSearch: false,
       show: {
         selectColumn: true,
         toolbar: true,
-        footer: true
+        // footer: true
+      },
+      toolbar: {
+        // style: "padding:2px; background: #e1e1e1",
+        items: [
+          { type: "spacer" },
+          {
+            type: "radio",
+            id: "show-all",
+            group: "1",
+            caption: "All",
+            hint: "Show resources from all accounts"
+          },{
+            type: "radio",
+            id: "show-dev",
+            group: "1",
+            caption: "Dev",
+            hint: "Show resources from only Dev account"
+          },
+          {
+            type: "radio",
+            id: "show-stage",
+            group: "1",
+            caption: "Stage",
+            hint: "Show resources from only Stage account",
+            checked: true
+          },
+          {
+            type: "radio",
+            id: "show-prod",
+            group: "1",
+            caption: "Prod",
+            hint: "Show resources from only Prod account"
+          }
+        ]
       },
       searches: [
-        { field: "id", caption: "Instance ID", type: "text" },
         { field: "name", caption: "Instance Name", type: "text" },
+        { field: "id", caption: "Instance ID", type: "text" },
         { field: "status", caption: "Status", type: "text" }
       ],
       sortData: [{ field: "recid", direction: "ASC" }],
       columns: [
-        { field: "id", caption: "Instance ID", size: "30", sortable: true  },
         { field: "name", caption: "Instance Name", size: "60", sortable: true  },
+        { field: "id", caption: "Instance ID", size: "30", sortable: true  },
         { field: "status", caption: "Status", size: "10", sortable: true  }
       ]
     };

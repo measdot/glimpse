@@ -19,3 +19,6 @@ body {
 .w2ui-grid .w2ui-grid-body table td {
   transition: width 0.4s;
 }
+.w2ui-grid .w2ui-toolbar-search .w2ui-search-all {
+  width: 249px!important;
+}

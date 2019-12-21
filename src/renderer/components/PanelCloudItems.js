@@ -1,5 +1,8 @@
 import { Layout } from "./_core/_layout";
 import { Plot } from "./Plot";
+import { SettingUp } from "./SettingUp";
+import { Preferences } from "./Preferences";
+
 
 export class PanelCloudItems {
   constructor(container) {
@@ -21,6 +24,20 @@ export class PanelCloudItems {
               componentName: "ec2",
               title: "AWS EC2",
               component: Plot
+            },
+            {
+              type: "component",
+              isClosable: false,
+              componentName: "preferences",
+              title: "Preferences",
+              component: Preferences
+            },
+            {
+              type: "component",
+              isClosable: false,
+              componentName: "setting-up",
+              title: "Setting Up",
+              component: SettingUp
             }
           ]
         }

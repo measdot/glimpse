@@ -14,7 +14,7 @@ export default {
     await cloudItmes.list(cloudItemTypes);
 
     const store = remote.getGlobal("sharedObj").store;
-    const Table = require("table-builder");
+    // const Table = require("table-builder");
 
     cloudItemTypes.forEach(cloudItemType => {
       var itemListTable =
@@ -37,19 +37,19 @@ export default {
       $("#" + cloudItemType).html(itemListTable);
     });
 
-    $(document).on("click", ".infra_item", async function() {
-      $(".infra_item").removeClass("selected_item");
-      $(this).addClass("selected_item");
+    // $(document).on("click", ".infra_item", async function() {
+    //   $(".infra_item").removeClass("selected_item");
+    //   $(this).addClass("selected_item");
 
-      $(".card-title").html($(this).html());
-      $(".card-category").html("From cloudwatch Metrics / Logs");
-      var context = $(this).data();
+    //   $(".card-title").html($(this).html());
+    //   $(".card-category").html("From cloudwatch Metrics / Logs");
+    //   var context = $(this).data();
 
-      //TODO if graph call metric else events
-      // await itemInfo.getMetricData(context)
-      await itemInfo.getEcsServiceEvents(context);
+    //   //TODO if graph call metric else events
+    //   // await itemInfo.getMetricData(context)
+    //   await itemInfo.getEcsServiceEvents(context);
       
-      monitor.show("table", store.get("metricData")[`a`]);
-    });
+    //   monitor.show("table", store.get("metricData")[`a`]);
+    // });
   },
 };
