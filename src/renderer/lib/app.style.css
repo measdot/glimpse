@@ -1,4 +1,4 @@
-body {
+/* body {
   background: #e1e1e1;
 }
 
@@ -21,4 +21,18 @@ body {
 }
 .w2ui-grid .w2ui-toolbar-search .w2ui-search-all {
   width: 249px!important;
+} */
+
+#app {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#app{
+  overflow: hidden;
+}
+.container{
+  overflow: auto;
 }
