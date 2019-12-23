@@ -1,66 +1,151 @@
 export class AppLanding {
   constructor(container) {
-    document.title = "Glimpse : Setup";
-    $(container).html(/*html*/ `
-        <div class="ui bottom fixed menu">
-          <div class="ui container labeled icon button attached green flat">
-              <i class="right arrow icon"></i>
-              I'm done Configuring, load the app now
-          </div>
-        </div>
-        <div class="ui container" style="padding-bottom:40px;">
-          <div class="ui basic segment">
-            <h3 class="ui dividing header">Terms & Conditions</h3>
-            <p>
-              Glimpse uses aws node sdk to cmmunicate with your aws cloudaccount(s) to
-            </p>
-            <ol>
-              <li>[read only] see through all configured aws accounts</li>
-              <li>[read only] list various resources like ec2, asg, ecs and more.</li>
-              <li>[read only] fetch available Cloudwatch metrics for the resouces </li>
-            </ol>
-            <div class="ui checkbox ">
-              <input type="checkbox" name="example">
-              <label>Seems fine :-)</label>
+    document.title = "Glimpse | Dashboard";
+
+    $(container).html(/*html*/`    
+    <div class="side-menu">
+      <div class="ui  vertical menu" style="width:100%">
+        <a class="item">
+          <i class="home icon"></i>
+          EC2
+        </a>
+        <a class="item">
+          <i class="block layout icon"></i>
+          RDS
+        </a>
+        <a class="item">
+          <i class="smile icon"></i>
+          ASG
+        </a>
+
+        <a class="item">
+          <i class="home icon"></i>
+          EC2
+        </a>
+        <a class="item">
+          <i class="block layout icon"></i>
+          RDS
+        </a>
+        <a class="item">
+          <i class="smile icon"></i>
+          ASG
+        </a>
+        <a class="item">
+          <i class="home icon"></i>
+          EC2
+        </a>
+        <a class="item">
+          <i class="block layout icon"></i>
+          RDS
+        </a>
+        <a class="item">
+          <i class="smile icon"></i>
+          ASG
+        </a>
+        <a class="item">
+          <i class="home icon"></i>
+          EC2
+        </a>
+        <a class="item">
+          <i class="block layout icon"></i>
+          RDS
+        </a>
+        <a class="item">
+          <i class="smile icon"></i>
+          ASG
+        </a>
+        <a class="item">
+          <i class="home icon"></i>
+          EC2
+        </a>
+        <a class="item">
+          <i class="block layout icon"></i>
+          RDS
+        </a>
+        <a class="item">
+          <i class="smile icon"></i>
+          ASG
+        </a>
+
+        <a class="item">
+          <i class="home icon"></i>
+          EC2
+        </a>
+        <a class="item">
+          <i class="block layout icon"></i>
+          RDS
+        </a>
+        <a class="item">
+          <i class="smile icon"></i>
+          ASG
+        </a>
+
+        <a class="item">
+          <i class="home icon"></i>
+          EC2
+        </a>
+        <a class="item">
+          <i class="block layout icon"></i>
+          RDS
+        </a>
+        <a class="item">
+          <i class="smile icon"></i>
+          ASG
+        </a>
+      </div>
+    </div>
+    <div class="top-menu">
+      <div class="ui menu">
+        <div class="ui dropdown icon item">
+        <i class="chart pie icon"></i>
+          <div class="menu">
+            <div class="item">
+              <i class="dropdown icon"></i>
+              <span class="text">New</span>
+              <div class="menu">
+                <div class="item">Document</div>
+                <div class="item">Image</div>
+              </div>
+            </div>
+            <div class="item">
+              Open...
+            </div>
+            <div class="item">
+              Save...
+            </div>
+            <div class="item">Edit Permissions</div>
+            <div class="divider"></div>
+            <div class="header">
+              Export
+            </div>
+            <div class="item">
+              Share...
             </div>
           </div>
-          <div class="ui basic segment">
-            <h3 class="ui dividing header">Accounts</h3>
-            <div class="ui cards">
-              <div class="card">
-                <div class="content">
-                  <div class="header">
-                    <div class="ui checkbox ">
-                      <input type="checkbox" name="example">
-                      <label>Stage</label>
-                    </div>
-                  </div>
-                  <div class="description">
-                    <p>Default Zone = us-east-1</p>
-                    <p>Content Type = json</p>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="header">
-                    <div class="ui checkbox ">
-                      <input type="checkbox" name="example">
-                      <label>Prod</label>
-                    </div>
-                  </div>
-                  <div class="description">
-                    <p>Default Zone = us-east-1</p>
-                    <p>Content Type = json</p>
-                  </div>
-                </div>
-              </div>
-              
+        </div>
+        <div class="right menu">
+          <div class="ui right aligned category search item">
+            <div class="ui transparent icon input">
+              <input class="prompt" type="text" placeholder="Search animals...">
+              <i class="search link icon"></i>
             </div>
+            <div class="results"></div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="content">
+      <h1>Implement with w2ui layout</h1>
+      <p>Add Tab content section</p>
+      <p>Check Height/width</p>
+      <p>check tab switching</p>
+      <p>onclick chart icon, shrink this area and make room for GL components</p>
 
 
-      `);
+
+    </div>
+`);
+    // $('.ui.sidebar').sidebar()
+  ;
   }
 }
