@@ -1,6 +1,6 @@
 import GoldenLayout from "golden-layout";
 
-export class Layout {
+export class Gl {
   constructor(config, container = "") {
     this._container = $(container); //GL prefers a jq equivalent of an HtmlElement DOM
     this._config = config;

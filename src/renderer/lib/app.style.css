@@ -22,14 +22,14 @@
 .w2ui-grid .w2ui-toolbar-search .w2ui-search-all {
   width: 249px!important;
 } */
-/* 
+
 #app {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-} */
+}
 /* .ui.column,
 .ui.segment {
   padding: 0 !important;
@@ -41,7 +41,7 @@
   top:40px;
   bottom: 40px;
 }  */
-
+/* 
 .side-menu{
 position: absolute;
 top: 0;
@@ -55,9 +55,9 @@ overflow: auto;
   top: 0;
   left: 150px;
   right: 0;
-  /* height: 40px; */
-}
-.content{
+  height: 40px;
+} */
+/* .content{
   background-color: #fff;
   position: absolute;
   top: 43px;
@@ -65,4 +65,18 @@ overflow: auto;
   right: 0;
   bottom: 0;
   overflow: auto;
+} */
+/* .ui.menu::-webkit-scrollbar ,
+.side-menu::-webkit-scrollbar { 
+  display: none !important; 
+}  */
+
+body ::-webkit-scrollbar {
+  width: 0px;
+}
+.ui.segment{
+  margin: 0;  
+  height: 100%;
+  width: 100%;
+  border: none;
 }

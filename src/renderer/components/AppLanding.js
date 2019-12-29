@@ -1,151 +1,58 @@
+import { W2Layout } from "./_core/_w2Layout";
+import { Toolbar } from "./_core/_htmlTemplates";
+import { SidebarMenu } from "./SidebarMenu";
+import { MainbarTabs } from "./MainbarTabs";
+
 export class AppLanding {
-  constructor(container) {
-    document.title = "Glimpse | Dashboard";
+  constructor(
+    container,
+    menuConfig = [
+      {
+        name: "AWS Services",
+        items: [{ name: "EC2" }, { name: "ASG" }, { name: "RDS" }]
+      }
+    ],
+    mainConfig = [
+      { name: "EC2" },
+      { name: "Auto Scaling Groups" },
+      { name: "RDS" },
+      { name: "How To?" },
+      { name: "FAQs" },
+      { name: "Feedback" }
+    ],
+    toolConfig = []
+  ) {
+    var _container = container;
 
-    $(container).html(/*html*/`    
-    <div class="side-menu">
-      <div class="ui  vertical menu" style="width:100%">
-        <a class="item">
-          <i class="home icon"></i>
-          EC2
-        </a>
-        <a class="item">
-          <i class="block layout icon"></i>
-          RDS
-        </a>
-        <a class="item">
-          <i class="smile icon"></i>
-          ASG
-        </a>
+    this.sidebarMenu = new SidebarMenu(menuConfig);
+    this.mainbarTabs = new MainbarTabs(mainConfig);
+    this.toolbar = new Toolbar(toolConfig);
 
-        <a class="item">
-          <i class="home icon"></i>
-          EC2
-        </a>
-        <a class="item">
-          <i class="block layout icon"></i>
-          RDS
-        </a>
-        <a class="item">
-          <i class="smile icon"></i>
-          ASG
-        </a>
-        <a class="item">
-          <i class="home icon"></i>
-          EC2
-        </a>
-        <a class="item">
-          <i class="block layout icon"></i>
-          RDS
-        </a>
-        <a class="item">
-          <i class="smile icon"></i>
-          ASG
-        </a>
-        <a class="item">
-          <i class="home icon"></i>
-          EC2
-        </a>
-        <a class="item">
-          <i class="block layout icon"></i>
-          RDS
-        </a>
-        <a class="item">
-          <i class="smile icon"></i>
-          ASG
-        </a>
-        <a class="item">
-          <i class="home icon"></i>
-          EC2
-        </a>
-        <a class="item">
-          <i class="block layout icon"></i>
-          RDS
-        </a>
-        <a class="item">
-          <i class="smile icon"></i>
-          ASG
-        </a>
+    var _mainLayoutConfig = {
+      name: "layout-home",
 
-        <a class="item">
-          <i class="home icon"></i>
-          EC2
-        </a>
-        <a class="item">
-          <i class="block layout icon"></i>
-          RDS
-        </a>
-        <a class="item">
-          <i class="smile icon"></i>
-          ASG
-        </a>
+      panels: [
+        {
+          type: "top",
+          resizable: false,
+          size: 45,
+          content: this.toolbar
+        },
+        {
+          type: "left",
+          resizable: false,
+          size: 150,
+          content: this.sidebarMenu
+        },
+        {
+          type: "main",
+          resizable: true,
+          content: this.mainbarTabs
+        }
+      ]
+    };
 
-        <a class="item">
-          <i class="home icon"></i>
-          EC2
-        </a>
-        <a class="item">
-          <i class="block layout icon"></i>
-          RDS
-        </a>
-        <a class="item">
-          <i class="smile icon"></i>
-          ASG
-        </a>
-      </div>
-    </div>
-    <div class="top-menu">
-      <div class="ui menu">
-        <div class="ui dropdown icon item">
-        <i class="chart pie icon"></i>
-          <div class="menu">
-            <div class="item">
-              <i class="dropdown icon"></i>
-              <span class="text">New</span>
-              <div class="menu">
-                <div class="item">Document</div>
-                <div class="item">Image</div>
-              </div>
-            </div>
-            <div class="item">
-              Open...
-            </div>
-            <div class="item">
-              Save...
-            </div>
-            <div class="item">Edit Permissions</div>
-            <div class="divider"></div>
-            <div class="header">
-              Export
-            </div>
-            <div class="item">
-              Share...
-            </div>
-          </div>
-        </div>
-        <div class="right menu">
-          <div class="ui right aligned category search item">
-            <div class="ui transparent icon input">
-              <input class="prompt" type="text" placeholder="Search animals...">
-              <i class="search link icon"></i>
-            </div>
-            <div class="results"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      <h1>Implement with w2ui layout</h1>
-      <p>Add Tab content section</p>
-      <p>Check Height/width</p>
-      <p>check tab switching</p>
-      <p>onclick chart icon, shrink this area and make room for GL components</p>
-
-
-
-    </div>
-`);
-    // $('.ui.sidebar').sidebar()
-  ;
+    // initialize empty default layouts
+    new W2Layout(_mainLayoutConfig, _container);
   }
 }
