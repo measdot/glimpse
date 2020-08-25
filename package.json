@@ -14,7 +14,7 @@
     "bootstrap": "^4.4.1",
     "electron-store": "^5.1.0",
     "golden-layout": "^1.5.9",
-    "highcharts": "^8.0.0",
+    "highcharts": "^8.1.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "source-map-support": "^0.5.12"
