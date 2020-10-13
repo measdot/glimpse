@@ -20,9 +20,14 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 590,
     useContentSize: true,
-    width: 1000
+    width: 668,
+    // frame: true,
+    // transparent: false,
+    // resizable: true,
+    // fullscreen: true,
+    // titleBarStyle: 'hiddenInset'
   })
 
   mainWindow.loadURL(winURL)
