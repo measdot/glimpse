@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import axios from 'axios'
 import Vuesax from 'vuesax'
-import splitPane from 'vue-splitpane'
+import { Splitpanes, Pane } from 'splitpanes'
+import 'splitpanes/dist/splitpanes.css'
 
 import 'vuesax/dist/vuesax.css' // Vuesax styles
 
@@ -13,7 +14,8 @@ if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
-Vue.component('split-pane', splitPane)
+Vue.component('splitpanes', Splitpanes)
+Vue.component('pane', Pane)
 Vue.use(Vuesax, {
   // options here
 })
