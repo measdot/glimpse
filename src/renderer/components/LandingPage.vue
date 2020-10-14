@@ -1,35 +1,95 @@
 <template>
-    <div class="noselect center grid">
-      <vs-row justify="center" align="center">
-        <vs-col offset="1" w="2">
-          <vs-button-group >
-            <vs-button icon flat dark>
+    <div class="grid">
+      <vs-row>
+        <vs-col class="side" w=4>
+          <vs-sidebar
+            relative
+            square
+            background="none"
+            v-model="active"
+            open
+          >
+          <template #logo>
+            <img src="/static/images/logo.png" alt="">
+          </template>
+          <vs-sidebar-item id="home">
+            <template #icon>
               <span class="material-icons">
-                navigate_before
+                track_changes
               </span>
-            </vs-button>
-            <vs-button icon flat dark> 
+            </template>
+            Home
+          </vs-sidebar-item>
+          <vs-sidebar-item id="market">
+            <template #icon>
               <span class="material-icons">
-                navigate_next
+                offline_bolt
               </span>
-            </vs-button>
-          </vs-button-group>
+            </template>
+            Overview
+          </vs-sidebar-item>
+          <vs-sidebar-item id="Music">
+            <template #icon>
+              <span class="material-icons">
+                offline_pin
+              </span>
+            </template>
+            Music
+          </vs-sidebar-item>
+          <hr>
+          <vs-sidebar-item id="donate">
+            <template #icon>
+              <span class="material-icons">
+                build_circle
+              </span>
+            </template>
+            Donate
+          </vs-sidebar-item>
+          <vs-sidebar-item id="drink">
+            <template #icon>
+              <span class="material-icons">
+                all_out
+              </span>
+            </template>
+            Drink
+          </vs-sidebar-item>
+          <vs-sidebar-item id="shopping">
+            <template #icon>
+              <span class="material-icons">
+                play_for_work
+              </span>
+            </template>
+            Shopping
+          </vs-sidebar-item>
+          <vs-sidebar-item id="chat">
+            <template #icon>
+              <span class="material-icons">
+                stars
+              </span>
+            </template>
+            Chat
+          </vs-sidebar-item>
+          <template #footer>
+            <vs-row justify="space-between">
+              <vs-avatar badge-color="danger" badge-position="top-right">
+                <img src="static/images/logo.png" alt="">
+                <template #badge>
+                  28
+                </template>
+              </vs-avatar>
+            </vs-row>
+          </template>
+        </vs-sidebar>
         </vs-col>
-        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="1">
-          <vs-button icon flat dark>
-            <span class="material-icons">
-                cloud
-            </span>
-          </vs-button>
-        </vs-col>
-        <vs-col background="dark" vs-type="flex" vs-justify="center" vs-align="center" w="4">
-          Cloud Glimpse
-        </vs-col>
-        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="3">
-          <div class="center content-inputs">
-            <vs-input state="dark" placeholder="Search">
-            </vs-input>
-          </div>
+        <vs-col class="main" w=8>
+          <split-pane style="height: -webkit-fill-available;" v-on:resize="resize" split="horizontal">
+            <template slot="paneL">
+              A
+            </template>
+            <template slot="paneR">
+              B
+            </template>
+          </split-pane>
         </vs-col>
       </vs-row>
     </div>
@@ -47,17 +107,43 @@ export default {
 </script>
 
 <style>
+.panel,
+.list{
+  height: 50%;
+}
+
 .noselect {
   -webkit-user-select: none;
   -webkit-app-region: drag;
-  /* height: 40px; */
+  height: 22px;
   /* background: rgb(45, 45, 45); */
 }
 body{
   margin:0px
 }
-:root {
-    /* --vs-primary: 60, 60, 60; */
+.side{
+  width: 180px;
+  /* padding: 10px; */
+}
+.main {
+  padding: 5px 20px;
+  height: -webkit-fill-available;
 }
 
+.vs-sidebar-content.relative {
+  height: 100vH;
+  width: -webkit-fill-available;
+}
+.vs-sidebar-content .vs-sidebar__logo {
+  min-height: 165px;
+}
+/* :root {
+    --vs-primary: 60, 60, 60;
+}
+.material-icons {
+  font-size: 30px;
+}
+.vs-button--icon .vs-button__content {
+    padding: 3px 3px;
+} */
 </style>

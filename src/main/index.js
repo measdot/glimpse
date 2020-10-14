@@ -23,11 +23,11 @@ function createWindow () {
     height: 590,
     useContentSize: true,
     width: 668,
-    frame: false,
+    frame: true
     // transparent: false,
     // resizable: true,
     // fullscreen: true,
-    titleBarStyle: 'hiddenInset'
+    // titleBarStyle: 'hidden'
   })
 
   mainWindow.loadURL(winURL)
