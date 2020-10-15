@@ -11,7 +11,7 @@
           <img src="/static/images/logo.png" alt="">
         </template>
         <vs-sidebar-item id="home">
-          <template #icon>
+          <template #icon background="primary">
             <span class="material-icons">
               track_changes
             </span>
@@ -69,32 +69,34 @@
         </vs-sidebar-item>
       </vs-sidebar>
     </pane>
-    <pane>
+    <pane class="content-area">
       <splitpanes horizontal>
-        <pane size="8">
-          <div class="grid">
-            <vs-row justify="flex-end">
+        <pane class="toolbar" size="8">
+          <div class="center grid">
+            <vs-row justify="flex-end" align="center">
               <vs-col w=3 order=1>
-                <div class="">
-                  <vs-button-group>
-                    <vs-button icon>
-                      <span class="material-icons">
-                        arrow_back_ios
-                      </span>
-                    </vs-button>
-                    <vs-button >
-                      Today
-                    </vs-button>
-                    <vs-button icon>
-                      <span class="material-icons">
-                        arrow_forward_ios
-                      </span>
-                    </vs-button>
-                  </vs-button-group>
-                </div>
+                <vs-button-group>
+                  <vs-button icon>
+                    <span class="material-icons">
+                      arrow_back_ios
+                    </span>
+                  </vs-button>
+                  <vs-button >
+                    Today
+                  </vs-button>
+                  <vs-button icon>
+                    <span class="material-icons">
+                      arrow_forward_ios
+                    </span>
+                  </vs-button>
+                </vs-button-group>
               </vs-col>
               <vs-col w=1>
-
+                <vs-button icon>
+                    <span class="material-icons">
+                      arrow_back_ios
+                    </span>
+                  </vs-button>
               </vs-col>
             </vs-row>
           </div>
@@ -137,8 +139,21 @@ body, #app {
 .vs-sidebar-content {
   width: 100%;
 }
-.vs-button-group .material-icons{
+.toolbar .material-icons{
   font-size: 15px;
+}
+.toolbar{
+  justify-content: center;
+  align-content: center;
+}
+.toolbar .grid, .toolbar .grid .vs-row{
+  height:100%
+}
+.vs-button {
+  margin:0;
+}
+.content-area {
+  padding: 0px 10px;
 }
 .splitpanes__pane {
   /* display: flex; */
