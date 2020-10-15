@@ -1,6 +1,6 @@
 <template>
   <splitpanes style="height: 100vH">
-    <pane size="30">
+    <pane size="27">
       <vs-sidebar
           relative
           square
@@ -71,7 +71,7 @@
     </pane>
     <pane class="content-area">
       <splitpanes horizontal>
-        <pane class="toolbar" size="8">
+        <pane class="toolbar" size="7">
           <div class="center grid">
             <vs-row justify="flex-end" align="center">
               <vs-col w=3 order=1>
@@ -112,7 +112,7 @@
             </pane>
           </splitpanes>
         </pane>
-        <pane size="8">5</pane>
+        <pane size="7">5</pane>
       </splitpanes>
     </pane>
     </splitpanes>
@@ -154,6 +154,14 @@ body, #app {
 }
 .content-area {
   padding: 0px 10px;
+}
+.vs-sidebar__logo {
+  min-height: 165px!important;
+}
+.vs-sidebar-content .vs-sidebar__logo img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
 }
 .splitpanes__pane {
   /* display: flex; */
