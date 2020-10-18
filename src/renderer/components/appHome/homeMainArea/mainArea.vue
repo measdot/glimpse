@@ -1,26 +1,26 @@
 <template>
-  <splitpanes horizontal>
-    <pane size="60">
-        <service-details></service-details>
-    </pane>
-    <pane class="list-container" size="40">
-        <service-list></service-list>
-    </pane>
-  </splitpanes>
+  <component v-bind:is="currentComponent"></component>
 </template>
 
 
 <script>
-
-import serviceList from '@/components/awsServices/serviceList/serviceList'
-import serviceDetails from '@/components/awsServices/serviceDetails/serviceDetails'
+import awsServices from '@/components/awsServices/awsServices'
+import appPrefs from '@/components/preferences/appPrefs'
 
 export default {
   name: 'mainArea',
   components: {
-    'service-list': serviceList,
-    'service-details': serviceDetails
+    'app-prefs': appPrefs,
+    'aws-services': awsServices
   },
-  data: () => ({})
+  data: () => ({
+    currentComponent: 'aws-services'
+  })
 }
 </script>
+
+<style>
+.splitpanes__splitter{
+  display:none;
+}
+</style>

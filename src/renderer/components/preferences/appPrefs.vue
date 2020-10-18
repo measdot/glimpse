@@ -4,6 +4,6 @@
 
 <script>
 export default {
-    name: 'app-prefs'
+  name: 'app-prefs'
 }
 </script>

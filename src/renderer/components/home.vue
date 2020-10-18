@@ -1,9 +1,9 @@
 <template>
   <splitpanes style="height: 100vH">
-    <pane class="side-area" size="27">
+    <pane class="side-area" size="25">
       <app-sidebar></app-sidebar>
     </pane>
-    <pane>
+    <pane class="main-area">
       <splitpanes horizontal>
         <pane class="content-area">
           <main-area></main-area>
@@ -65,9 +65,10 @@ body, #app {
   font-size: 0.8rem;
   border-radius: 4px;
 }
+.footer,
 .content-area {
   padding: 0px 20px;
-  background: #f9e7e7;
+  background: #383838;
 }
 .vs-sidebar__logo {
   min-height: 165px!important;
@@ -84,9 +85,8 @@ body, #app {
 
 /* .toolbar, */
 .detail-container, 
-.list-container,
-.footer{
-  border: 1px dotted gray;
+.list-container{
+  border: 1px solid gray;
 
 }
 .vs-sidebar__item__icon{

@@ -20,3 +20,10 @@ export default {
 
 // this vue file should import
 </script>
+
+<style lang="css">
+.detail-container{
+  background-color: rgb(30, 30, 30);
+  color: white;
+}
+</style>
