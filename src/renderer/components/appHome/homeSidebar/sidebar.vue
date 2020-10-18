@@ -8,7 +8,7 @@
       active-text-color="#fff"
       default-active="2">
         <el-row>
-          <el-col style="padding: 23px;">
+          <el-col style="padding: 61px 0px 20px 0px;">
             <el-image
               style="width: 100px; height: 100px; border-radius: 50%; display: block; margin: auto;"
               src="/static/images/avatar.png"
@@ -19,42 +19,43 @@
         </el-row>
         
         <el-menu-item index="1">
-          <i class="el-icon-menu"></i>
+          <i style="background-color: rgb(20, 120, 240);" class="el-icon-menu"></i>
           <span>Dashboard</span>
         </el-menu-item>
 
         <el-menu-item index="2">
-          <i class="el-icon-star-on"></i>
-          <span>Popular</span>
+          <i style="background-color: rgb(247, 60, 56);" class="el-icon-star-on"></i>
+          <span>Categories</span>
         </el-menu-item>
         <el-menu-item index="3">
-          <i class="el-icon-s-flag"></i>
-          <span>Flagged</span>
+          <i style="background-color: rgb(250, 200, 50);" class="el-icon-s-flag"></i>
+          <span>Recent</span>
         </el-menu-item>
         <el-divider></el-divider>
 
         <el-menu-item index="4">
-          <i class="el-icon-pie-chart"></i>
+          <i style="background-color: rgb(104, 105, 246);" class="el-icon-pie-chart"></i>
           <span>Metrics</span>
         </el-menu-item>
 
         <el-menu-item index="5">
-          <i class="el-icon-bank-card"></i>
+          <i style="background-color: rgb(236, 136, 36);" class="el-icon-bank-card"></i>
           <span>Cost</span>
         </el-menu-item>
 
         <el-menu-item index="6">
-          <i class="el-icon-s-operation"></i>
+          <i style="background-color: rgb(79, 205, 100);" class="el-icon-s-operation"></i>
           <span>Events</span>
         </el-menu-item>
 
         <el-menu-item index="7">
-          <i class="el-icon-office-building"></i>
+          <i style="background-color: rgb(245, 108, 108);" class="el-icon-office-building"></i>
           <span>Architecture</span>
         </el-menu-item>
         <div style="height: 100%"></div>
+        
         <el-menu-item style="position:absolute; bottom: 10px; width: 100%" index="8">
-          <i class="el-icon-odometer"></i>
+          <i style="background-color: gray; border-radius: 50%;" class="el-icon-odometer"></i>
           <span>Options</span>
         </el-menu-item>
 
@@ -83,7 +84,7 @@ export default {
 <style lang="css">
 *{
   font-family: sans-serif;
-  /* user-select: none; */
+  user-select: none;
 }
 .el-menu{
   height: 100%;
@@ -99,7 +100,7 @@ export default {
   font-size: 0.8rem;
   opacity: 0.9;
 }
-[class^=el-icon-]:before {
+.side-menu [class^=el-icon-]:before {
   vertical-align: sub;
 }
 .el-menu-item:hover {
@@ -123,7 +124,6 @@ export default {
 }
 .el-menu {
     border-right: none;
-    /* border-right: solid 1px #e6e6e6; */
 }
 .el-divider--horizontal {
   width: 85%;
@@ -132,5 +132,11 @@ export default {
   margin-top: 9px;
   margin-bottom: 9px;
   opacity: 0.1;
+}
+.el-menu-item [class^=el-icon-] {
+    margin-right: 0px;
+}
+.el-menu-item span{
+  padding-left:10px;
 }
 </style>

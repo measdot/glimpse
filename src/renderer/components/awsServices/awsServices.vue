@@ -3,7 +3,7 @@
     <pane size="63">
         <service-details></service-details>
     </pane>
-    <pane class="list-container">
+    <pane class="list-container" style="border-left: 1px solid #646464;border-right: 1px solid #646464;border-bottom: 1px solid #646464;">
         <service-list></service-list>
     </pane>
   </splitpanes>
