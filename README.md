@@ -1,6 +1,11 @@
 # glimpse
 
-> quickly see details of running services from all aws accounts, along with relevant cloudwatch metrics and logs
+Quickly see details of running services from all aws accounts, along with relevant cloudwatch metrics and logs
+
+<p align="center">
+  <img src="https://www.butterops.dev/images/glimpse.png">
+    a screenshot from development version of the app
+</p>
 
 #### Build Setup
 
