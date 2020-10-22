@@ -1,114 +1,114 @@
-import monitor from "../app/deprecated/monitor";
-import { remote } from "electron";
-import cw from "./core/_cw";
-import ecs from "./core/_ecs";
+import monitor from '../app/deprecated/monitor'
+import { remote } from 'electron'
+import cw from './core/_cw'
+import ecs from './core/_ecs'
 
 const processDataForGraph = metricData => {
-  var allGraphs = [];
+  var allGraphs = []
   metricData.forEach((data, index) => {
     var graphData = {
       name: data.Label,
       lables: [],
-      series: [],
-    };
+      series: []
+    }
 
-    var Average = [];
-    var SampleCount = [];
-    var Maximum = [];
-    var Minimum = [];
-    var Sum = [];
+    var Average = []
+    var SampleCount = []
+    var Maximum = []
+    var Minimum = []
+    var Sum = []
 
     data.Datapoints.forEach((dataPoint, i) => {
-      graphData.lables.push(dataPoint.Timestamp);
-      Average.push(dataPoint.Average);
-      SampleCount.push(dataPoint.SampleCount);
-      Maximum.push(dataPoint.Maximum);
-      Minimum.push(dataPoint.Minimum);
-      Sum.push(dataPoint.Sum);
-    });
+      graphData.lables.push(dataPoint.Timestamp)
+      Average.push(dataPoint.Average)
+      SampleCount.push(dataPoint.SampleCount)
+      Maximum.push(dataPoint.Maximum)
+      Minimum.push(dataPoint.Minimum)
+      Sum.push(dataPoint.Sum)
+    })
 
-    graphData.series.push(Average, SampleCount, Maximum, Minimum, Sum);
-    allGraphs.push(graphData);
-  });
+    graphData.series.push(Average, SampleCount, Maximum, Minimum, Sum)
+    allGraphs.push(graphData)
+  })
 
-  return allGraphs;
-};
+  return allGraphs
+}
 
 export default {
   getMetricData: async ({ type, profile, meta }) => {
     var Metrics = {
       ec2: [
         {
-          Namespace: "AWS/EC2",
-          MetricNames: ["CPUUtilization", "NetworkIn"],
-        },
+          Namespace: 'AWS/EC2',
+          MetricNames: ['CPUUtilization', 'NetworkIn']
+        }
       ],
       alb: [
         {
-          Namespace: "AWS/ELB",
+          Namespace: 'AWS/ELB',
           MetricNames: [
-            "HealthyHostCount",
-            "UnHealthyHostCount",
-            "RequestCount",
-            "HTTPCode_Backend_2XX",
-            "HTTPCode_Backend_3XX",
-            "HTTPCode_Backend_4XX",
-            "HTTPCode_Backend_5XX",
-          ],
-        },
+            'HealthyHostCount',
+            'UnHealthyHostCount',
+            'RequestCount',
+            'HTTPCode_Backend_2XX',
+            'HTTPCode_Backend_3XX',
+            'HTTPCode_Backend_4XX',
+            'HTTPCode_Backend_5XX'
+          ]
+        }
       ],
       rds: [
         {
-          Namespace: "AWS/RDS",
+          Namespace: 'AWS/RDS',
           MetricNames: [
-            "DatabaseConnections",
-            "CPUUtilization",
-            "SwapUsage",
-            "WriteIOPS",
-            "ReadIOPS",
-            "WriteLatency",
-            "ReadLatency",
-            "WriteThroughput",
-            "ReadThroughput",
-          ],
-        },
-      ],
-    };
-    var EndTime = new Date();
-    var StartTime = new Date(EndTime - 15 * 60 * 1000);
+            'DatabaseConnections',
+            'CPUUtilization',
+            'SwapUsage',
+            'WriteIOPS',
+            'ReadIOPS',
+            'WriteLatency',
+            'ReadLatency',
+            'WriteThroughput',
+            'ReadThroughput'
+          ]
+        }
+      ]
+    }
+    var EndTime = new Date()
+    var StartTime = new Date(EndTime - 15 * 60 * 1000)
 
-    var allMetricStats = [];
+    var allMetricStats = []
     console.log(type)
     for (const metric of Metrics[type]) {
-      var Namespace = metric.Namespace;
-      var doneSteps = 0;
-      var totalSteps = metric.MetricNames.length;
+      var Namespace = metric.Namespace
+      var doneSteps = 0
+      var totalSteps = metric.MetricNames.length
 
       for (const MetricName of metric.MetricNames) {
-        monitor.wait(MetricName, totalSteps, doneSteps++);
+        monitor.wait(MetricName, totalSteps, doneSteps++)
 
-        var dimensions = [];
+        var dimensions = []
         switch (type) {
-          case "ec2":
+          case 'ec2':
             dimensions.push({
-              Name: "InstanceId",
-              Value: meta["InstanceId"],
-            });
-            break;
+              Name: 'InstanceId',
+              Value: meta['InstanceId']
+            })
+            break
 
-          case "alb":
+          case 'alb':
             dimensions.push({
-              Name: "LoadBalancer",
-              Value: meta["LoadBalancerArn"].split(':')[1],
-            });
-            break;
+              Name: 'LoadBalancer',
+              Value: meta['LoadBalancerArn'].split(':')[1]
+            })
+            break
 
-          case "rds":
+          case 'rds':
             dimensions.push({
-              Name: "DBInstanceIdentifier",
-              Value: meta["DBInstanceIdentifier"],
-            });
-            break;
+              Name: 'DBInstanceIdentifier',
+              Value: meta['DBInstanceIdentifier']
+            })
+            break
         }
         var params = {
           Period: 60,
@@ -116,28 +116,28 @@ export default {
           EndTime: EndTime,
           MetricName: MetricName,
           Namespace: Namespace,
-          Statistics: ["SampleCount", "Average", "Sum", "Minimum", "Maximum"],
-          Dimensions: dimensions,
-        };
+          Statistics: ['SampleCount', 'Average', 'Sum', 'Minimum', 'Maximum'],
+          Dimensions: dimensions
+        }
 
-        var metricStats = await cw.getMetricStatistics(params, profile);
-        metricStats.Namespace = Namespace;
+        var metricStats = await cw.getMetricStatistics(params, profile)
+        metricStats.Namespace = Namespace
 
-        allMetricStats.push(metricStats);
+        allMetricStats.push(metricStats)
       }
     }
 
-    const store = remote.getGlobal("sharedObj").store;
-    var metricData = store.has("metricData") ? store.get("metricData") : {};
-    metricData["a"] = processDataForGraph(allMetricStats);
-    store.set("metricData", metricData);
+    const store = remote.getGlobal('sharedObj').store
+    var metricData = store.has('metricData') ? store.get('metricData') : {}
+    metricData['a'] = processDataForGraph(allMetricStats)
+    store.set('metricData', metricData)
   },
 
-  getEcsServiceEvents: async({ type, profile, meta })=>{
+  getEcsServiceEvents: async ({ type, profile, meta }) => {
     var events = await ecs.events({clusterName: meta.cluster.split('/')[1]}, profile)
-    const store = remote.getGlobal("sharedObj").store;
-    var metricData = store.has("metricData") ? store.get("metricData") : {};
-    metricData["a"] = events;
-    store.set("metricData", metricData);
+    const store = remote.getGlobal('sharedObj').store
+    var metricData = store.has('metricData') ? store.get('metricData') : {}
+    metricData['a'] = events
+    store.set('metricData', metricData)
   }
-};
+}
