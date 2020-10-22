@@ -25,8 +25,8 @@ function createWindow () {
     width: 668,
     frame: false,
     // transparent: false,
-    // resizable: true,
-    // fullscreen: true,
+    resizable: false,
+    fullscreen: false,
     titleBarStyle: 'hiddenInset'
   })
 
