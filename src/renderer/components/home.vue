@@ -9,7 +9,7 @@
           <pane class="content-area">
             <main-area></main-area>
           </pane>
-          <pane class="footer" size="10">
+          <pane class="footer" size="8">
             <el-row type="flex" class="row-bg"  align="middle"  justify="end" style="height: 100%;" >
               <el-col :span="22"><span style="float: right; color: white; opacity: 0.8; font-size: 0.7rem;">Updated today at 10:19 PM</span></el-col>
               <el-col :span="2">

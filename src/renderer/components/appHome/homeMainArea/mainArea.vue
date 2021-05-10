@@ -14,7 +14,7 @@ export default {
     'aws-services': awsServices
   },
   data: () => ({
-    currentComponent: 'aws-services'
+    currentComponent: 'app-prefs'
   })
 }
 </script>

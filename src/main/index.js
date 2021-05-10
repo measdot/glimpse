@@ -25,9 +25,12 @@ function createWindow () {
     width: 668,
     frame: false,
     // transparent: false,
-    resizable: false,
+    resizable: true,
     fullscreen: false,
-    titleBarStyle: 'hiddenInset'
+    titleBarStyle: 'hiddenInset',
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
 
   mainWindow.loadURL(winURL)

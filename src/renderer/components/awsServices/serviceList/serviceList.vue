@@ -2,7 +2,7 @@
   <el-table
   ref="singleTable"
   stripe
-  :data="users"
+  :data="servers"
   style="width: 100%; color: white; opacity: 0.8;">
     <el-table-column>
       <!-- <template slot="header" slot-scope="scope">
@@ -34,7 +34,7 @@ export default {
   name: 'serviceList',
   data: () => ({
     selected: null,
-    users: [
+    servers: [
       {
         'id': 1,
         'name': 'tf-stage-website-mysql',

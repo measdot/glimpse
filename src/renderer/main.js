@@ -4,6 +4,7 @@ import ElementUI from 'element-ui'
 import Chartkick from 'vue-chartkick'
 import Chart from 'chart.js'
 import 'element-ui/lib/theme-chalk/index.css'
+
 import { Splitpanes, Pane } from 'splitpanes'
 import 'splitpanes/dist/splitpanes.css'
 

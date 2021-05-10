@@ -6,7 +6,7 @@
       background-color="#323232"
       text-color="#fff"
       active-text-color="#fff"
-      default-active="2">
+      default-active="8">
         <el-row>
           <el-col style="padding: 61px 0px 20px 0px;">
             <el-image
@@ -14,7 +14,7 @@
               src="/static/images/avatar.png"
               fit="fill">
             </el-image>
-            <div style="text-align: center; padding: 7px 0px; color: white; font-size: 0.8rem"><span>ButterOps Inc.</span></div>
+            <div style="text-align: center; padding: 7px 0px; color: white; font-size: 0.8rem"><span>ButterOps Community</span></div>
           </el-col>
         </el-row>
         
@@ -54,9 +54,9 @@
         </el-menu-item>
         <div style="height: 100%"></div>
         
-        <el-menu-item style="position:absolute; bottom: 10px; width: 100%" index="8">
+        <el-menu-item class="is-active" style="position:absolute; bottom: 10px; width: 100%" index="8">
           <i style="background-color: gray; border-radius: 50%;" class="el-icon-odometer"></i>
-          <span>Options</span>
+          <span>Preferences</span>
         </el-menu-item>
 
       </el-menu>
