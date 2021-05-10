@@ -53,7 +53,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap-vue": "^2.21.2",
     "chart.js": "^2.9.3",
     "element-ui": "^2.13.2",
